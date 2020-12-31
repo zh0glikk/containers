@@ -1,5 +1,5 @@
 ARG ARCH=amd64
-FROM lopsided/archlinux-$ARCH
+FROM ndoskrnl/archlinux-$ARCH
 
 RUN pacman -Syu --noconfirm --needed base-devel
 
