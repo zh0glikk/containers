@@ -1,5 +1,5 @@
-ARG ARCH=amd64
-FROM ndoskrnl/archlinux-$ARCH
+ARG URL=amd64
+FROM scratch
 
 WORKDIR /archlinux
 
