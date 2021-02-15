@@ -1,16 +1,16 @@
-# Basic Arch Linux Docker images ![build](https://github.com/ndoskrnl/archlinux-docker/workflows/build/badge.svg)
+# Basic Arch Linux Docker images ![build](https://github.com/faddat/archlinux-docker/workflows/build/badge.svg)
 
 Docker images for Arch Linux on x86_64, AArch64 (ARMv8-A). Built using native pacman and Docker multi-stage builds. Builds weekly by Travis CI on publicly visible infrastructure using QEMU emulation to support ARM.
 
 ## Running the images
 
-The images are on [Docker Hub](https://hub.docker.com/u/ndoskrnl/). Use the convenient `docker run`:
+The images are on [Docker Hub](https://hub.docker.com/u/faddat/). Use the convenient `docker run`:
 
-    docker run --rm -ti ndoskrnl/archlinux
+    docker run --rm -ti faddat/archlinux
 
 Instead of using the multi-arch container above, you can also get the architecture specific image directly:
 
-    docker run --rm -ti ndoskrnl/archlinux-arm64v8
+    docker run --rm -ti faddat/archlinux-arm64v8
 
 ## Tags
 
@@ -36,7 +36,7 @@ If you want to contribute, get to the [issues-section of this repository](https:
 Simply add the `TZ` environment-variable and define it with a valid timezone-value.
 
 ```
-docker run -e TZ=America/New_York ndoskrnl/archlinux
+docker run -e TZ=America/New_York faddat/archlinux
 ```
 
 ## Building it yourself
