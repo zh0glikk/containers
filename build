@@ -1,13 +1,8 @@
 #!/bin/bash -ex
 
-DOCKER_ARCH=${BUILD_ARCH:-amd64}
 DOCKER_ORG=faddat
-DOCKER_IMAGE=archlinux-${DOCKER_ARCH}
+DOCKER_IMAGE=archlinux-$BUILD_ARCH
 
-docker build --build-arg ARCH=${DOCKER_ARCH} \
-  -t $DOCKER_ORG/$DOCKER_IMAGE \
-	-f Dockerfile .
+docker build --build-arg ARCH="$BUILD_ARCH" --build-arg ARCHDIR="rootfs/$BUILD_ARCH" -t "$DOCKER_ORG/$DOCKER_IMAGE" -f Dockerfile .
 
-docker build --build-arg ARCH=${DOCKER_ARCH} \
-  -t $DOCKER_ORG/$DOCKER_IMAGE:devel \
-	-f Dockerfile.devel .
+docker build --build-arg ARCH="$BUILD_ARCH" --build-arg ARCHDIR="rootfs/$BUILD_ARCH" -t "$DOCKER_ORG/$DOCKER_IMAGE":devel -f Dockerfile.devel .

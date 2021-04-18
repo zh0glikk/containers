@@ -1,5 +1,10 @@
-ARG ARCH=amd64
+ARG ARCH
 FROM lopsided/archlinux-$ARCH
+
+RUN env
+
+
+COPY $ARCHDIR /
 
 RUN pacman -Syu --noconfirm --needed base-devel
 
