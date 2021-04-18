@@ -23,6 +23,7 @@ ENV LANG=en_US.UTF-8
 
 RUN locale-gen && \
     pacman-key --init && \
-    (pacman-key --populate archlinux || pacman-key --populate archlinuxarm)
+    (pacman-key --populate archlinux || pacman-key --populate archlinuxarm) && \
+    pacman -Syyu --noconfirm
 
 CMD ["/usr/bin/bash"]
