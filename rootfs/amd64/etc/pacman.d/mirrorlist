@@ -1,4 +1,3 @@
-Server = https://mirrors.huaweicloud.com/archlinux/$repo/os/$arch
 Server = https://archlinux.surlyjake.com/archlinux/$repo/os/$arch
 Server = https://mirror.arizona.edu/archlinux/$repo/os/$arch
 Server = https://arlm.tyzoid.com/$repo/os/$arch

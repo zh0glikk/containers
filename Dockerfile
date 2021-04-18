@@ -1,5 +1,5 @@
-ARG URL=amd64
-FROM scratch
+ARG ARCH=amd64
+FROM lopsided/archlinux-$ARCH
 
 WORKDIR /archlinux
 
@@ -7,7 +7,8 @@ RUN mkdir -p /archlinux/rootfs
 
 COPY pacstrap-docker /archlinux/
 
-RUN ./pacstrap-docker /archlinux/rootfs bash sed gzip pacman; \
+RUN ./pacstrap-docker /archlinux/rootfs \
+	    bash sed gzip pacman && \
     # Remove current pacman database, likely outdated very soon
     rm rootfs/var/lib/pacman/sync/*
 
@@ -20,8 +21,9 @@ COPY rootfs/$ARCH/ /
 
 ENV LANG=en_US.UTF-8
 
-RUN locale-gen; \
-    pacman-key --init; \
-    pacman-key --populate archlinux || pacman-key --populate archlinuxarm
+RUN locale-gen && \
+    pacman-key --init && \
+    (pacman-key --populate archlinux || pacman-key --populate archlinuxarm) && \
+    pacman -Syyu --noconfirm
 
 CMD ["/usr/bin/bash"]

@@ -1,16 +1,16 @@
-# Basic Arch Linux Docker images ![build](https://github.com/faddat/archlinux-docker/workflows/build/badge.svg)
+# Basic Arch Linux Docker images ![build](https://github.com/lopsided98/archlinux-docker/workflows/build/badge.svg)
 
-Docker images for Arch Linux on x86_64, AArch64 (ARMv8-A). Built using native pacman and Docker multi-stage builds. Builds weekly by Travis CI on publicly visible infrastructure using QEMU emulation to support ARM.
+Docker images for Arch Linux on x86_64, AArch32 (ARMv5TE, ARMv6, ARMv7-A) and AArch64 (ARMv8-A). Built using native pacman and Docker multi-stage builds. Builds weekly by Travis CI on publicly visible infrastructure using QEMU emulation to support ARM.
 
 ## Running the images
 
-The images are on [Docker Hub](https://hub.docker.com/u/faddat/). Use the convenient `docker run`:
+The images are on [Docker Hub](https://hub.docker.com/u/lopsided/). Use the convenient `docker run`:
 
-    docker run --rm -ti faddat/archlinux
+    docker run --rm -ti lopsided/archlinux
 
 Instead of using the multi-arch container above, you can also get the architecture specific image directly:
 
-    docker run --rm -ti faddat/archlinux-arm64v8
+    docker run --rm -ti lopsided/archlinux-arm32v7
 
 ## Tags
 
@@ -36,7 +36,7 @@ If you want to contribute, get to the [issues-section of this repository](https:
 Simply add the `TZ` environment-variable and define it with a valid timezone-value.
 
 ```
-docker run -e TZ=America/New_York faddat/archlinux
+docker run -e TZ=America/New_York lopsided/archlinux
 ```
 
 ## Building it yourself
@@ -51,6 +51,9 @@ docker run -e TZ=America/New_York faddat/archlinux
 - Prepare binfmt use with Qemu user mode using `sudo ./prepare-qemu`
 - Run `BUILD_ARCH=<arch> ./build` to build
   - Use `BUILD_ARCH=amd64` for x86_64
+  - Use `BUILD_ARCH=arm32v5` for ARMv5 Aarch32
+  - Use `BUILD_ARCH=arm32v6` for ARMv6 Aarch32
+  - Use `BUILD_ARCH=arm32v7` for ARMv7 Aarch32
   - Use `BUILD_ARCH=arm64v8` for ARMv8 Aarch64
 
 If you want to push the images, run `./push`. *But be aware you have no push access to the repos! Edit the scripts to push to custom Docker Hub locations!*
@@ -63,8 +66,8 @@ the Arch Linux ARM project. I used the following steps to bootstrap for each
 architecture:
 
 ```
-gzip -d ArchLinuxARM-armv8-latest.tar.gz
-docker import ArchLinuxARM-armv8-latest.tar ndoskrnl/archlinux-arm64v8:latest
+gzip -d ArchLinuxARM-armv7-latest.tar.gz
+docker import ArchLinuxARM-armv7-latest.tar lopsided/archlinux-arm32v7:latest
 ```
 
 ## Credits
