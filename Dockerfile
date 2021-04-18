@@ -18,16 +18,16 @@ RUN ./pacstrap-docker /archlinux/rootfs \
     rm rootfs/var/lib/pacman/sync/*
 
 FROM scratch
-ARG ARCHDIR="rootfs/amd64"
+ARG ARCH=amd64
 
 COPY --from=0 /archlinux/rootfs/ /
 COPY rootfs/common/ /
+COPY rootfs/$ARCH/ /
 
 ENV LANG=en_US.UTF-8
 
 RUN locale-gen && \
     pacman-key --init && \
-    (pacman-key --populate archlinux || pacman-key --populate archlinuxarm) && \
-    pacman -Syyu --noconfirm
+    (pacman-key --populate archlinux || pacman-key --populate archlinuxarm)
 
 CMD ["/usr/bin/bash"]
