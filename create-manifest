@@ -1,6 +1,6 @@
 #!/bin/bash -ex
 
-DOCKER_ORG=lopsided
+DOCKER_ORG=faddat
 DOCKER_IMAGE=archlinux
 
 TAGS="latest devel"
