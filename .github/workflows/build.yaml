@@ -1,11 +1,13 @@
 name: build
 
 on:
+  workflow_dispatch:
   push:
     branches: master
   schedule:
     # Run daily
     - cron:  '0 0 * * *'
+  
 
 jobs:
   build:
@@ -36,6 +38,14 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
           
+      -
+        name: Login to GitHub Container Registry
+        uses: docker/login-action@v1 
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+          
       - name: Push
         run: ./push
         
@@ -55,6 +65,14 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+          
+      -
+        name: Login to GitHub Container Registry
+        uses: docker/login-action@v1 
+        with:
+          registry: ghcr.io
+          username: ${{ github.repository_owner }}
+          password: ${{ secrets.GITHUB_TOKEN }}
           
       - name: Create manifest
         run: ./create-manifest
