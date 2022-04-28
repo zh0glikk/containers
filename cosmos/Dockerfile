@@ -3,4 +3,4 @@
 
 FROM faddat/archlinux
 
-RUN pacman -Syyu --noconfirm go base-devel git cleveldb rocksdb make 
+RUN pacman -Syyu --noconfirm go base-devel git leveldb rocksdb make 
