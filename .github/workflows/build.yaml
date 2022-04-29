@@ -104,5 +104,4 @@ jobs:
           context: cosmos
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: |
-            ghcr.io/faddat/cosmos:latest
+          tags: ghcr.io/faddat/cosmos:latest
