@@ -105,4 +105,4 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
-            ghcr.io/faddat/archlinux/cosmos:latest
+            ghcr.io/faddat/cosmos:latest
