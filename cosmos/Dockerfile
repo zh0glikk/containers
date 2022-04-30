@@ -3,4 +3,4 @@
 
 FROM ghcr.io/faddat/archlinux
 
-RUN pacman -Syyu --noconfirm go base-devel git leveldb rocksdb make python snappy lz4 git-lfs
+RUN pacman -Syyu --noconfirm go base-devel git leveldb rocksdb make python snappy lz4 git-lfs jq wget curl
