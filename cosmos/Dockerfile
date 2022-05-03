@@ -4,7 +4,7 @@
 FROM ghcr.io/faddat/archlinux
 
 
-RUN pacman -Syyu --noconfirm go base-devel git leveldb rocksdb make python snappy lz4 git-lfs jq wget curl protoc nvm yarn
+RUN pacman -Syyu --noconfirm go base-devel git leveldb rocksdb make python snappy lz4 git-lfs jq wget curl protobuf nvm yarn
 RUN go install mvdan.cc/gofumpt@latest
 RUN go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
 
