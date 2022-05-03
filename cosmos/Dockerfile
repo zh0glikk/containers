@@ -3,4 +3,10 @@
 
 FROM ghcr.io/faddat/archlinux
 
+ENV GOPATH=/go
+ENV PATH=$PATH:/go/bin
+
 RUN pacman -Syyu --noconfirm go base-devel git leveldb rocksdb make python snappy lz4 git-lfs jq wget curl
+RUN go install mvdan.cc/gofumpt@latest
+RUN go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
+
