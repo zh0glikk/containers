@@ -3,8 +3,10 @@
 
 FROM ghcr.io/faddat/archlinux
 
+# everything needed for cosmos development
+RUN pacman -Syyu --noconfirm go base-devel git leveldb rocksdb make python snappy lz4 git-lfs jq wget curl protobufs yarn
 
-RUN pacman -Syyu --noconfirm go base-devel git leveldb rocksdb make python snappy lz4 git-lfs jq wget curl protobufs nvm yarn
+# Useful tools
 RUN go install mvdan.cc/gofumpt@latest
 RUN go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
 
