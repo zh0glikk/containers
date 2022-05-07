@@ -7,6 +7,8 @@ FROM ghcr.io/faddat/archlinux
 RUN pacman -Syyu --noconfirm go base-devel git leveldb rocksdb make python snappy lz4 git-lfs jq wget curl protobuf yarn rustup
 
 # Useful tools
-RUN go install mvdan.cc/gofumpt@latest
-RUN go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
+RUN go install mvdan.cc/gofumpt@latest && \
+      go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest
+      cp $(which gofumpt) /usr/bin
+      cp $(which golangci-lint) /usr/bin
 
