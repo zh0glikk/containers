@@ -137,4 +137,4 @@ jobs:
           context: evmos
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: ghcr.io/faddat/cosmos:latest
+          tags: ghcr.io/faddat/evmos:latest
