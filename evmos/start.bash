@@ -37,16 +37,18 @@ echo "TRUST HASH: $TRUST_HASH"
 
 
 # export state sync vars
+export EVMOSD_RPC_LADDR=tcp://0.0.0.0:26657
+export OSMOSISD_API_ADDRESS=tcp://127.0.0.1:1317
+export EVMOSD_GRPC_ADDRESS=0.0.0.0:9090
 export EVMOSD_P2P_SEEDS="4e5597c2153c1a5b56ecaccff0bd49340bbc1de2@65.108.137.35:26656,906840c2f447915f3d0e37bc68221f5494f541db@3.39.58.32:26656,7aa31684d201f8ebc0b1e832d90d7490345d77ee@52.10.99.253:26656,5740e4a36e646e80cc5648daf5e983e5b5d8f265@54.39.18.27:26656,de2c5e946e21360d4ffa3885579fa038a7d9776e@46.101.148.190:26656"
-export EVMOSD_P2P_MAX_NUM_OUTBOUND_PEERS=200
+export EVMOSD_P2P_MAX_NUM_OUTBOUND_PEERS=100
+export EVMOSD_P2P_MAX_NUM_OUTBOUND_PEERS=800
 export EVMOSD_STATESYNC_ENABLE=true
 export EVMOSD_STATESYNC_RPC_SERVERS="https://tendermint.bd.evmos.org:26657,https://tendermint.bd.evmos.org:26657"
 export EVMOSD_STATESYNC_TRUST_HEIGHT=$BLOCK_HEIGHT
 export EVMOSD_STATESYNC_TRUST_HASH=$TRUST_HASH
 
-# Rockdb won't make this folder, so we make it 
-# we can remove this if my changes are accepted upstream
-# mkdir -p ~/.osmosisd/data/snapshots/metadata.db
+
 
 # THIS WILL FAIL BECAUSE THE APP VERSION IS CORRECTLY SET IN OSMOSIS
 evmosd start --json-rpc.enable=true --json-rpc.api="eth,web3,net" --x-crisis-skip-assert-invariants --db_backend rocksdb
