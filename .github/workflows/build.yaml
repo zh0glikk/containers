@@ -140,7 +140,7 @@ jobs:
           tags: ghcr.io/faddat/evmos:latest
 
 
-gaia:
+  gaia:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
