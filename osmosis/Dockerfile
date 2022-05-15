@@ -1,4 +1,5 @@
 FROM ghcr.io/faddat/cosmos
 
-RUN  wget -O genesis.json https://cloudflare-ipfs.com/ipfs/QmXRvBT3hgoXwwPqbK6a2sXUuArGM8wPyo1ybskyyUwUxs
+RUN  wget -O genesis.json https://github.com/osmosis-labs/osmosis/raw/main/networks/osmosis-1/genesis.json
+
 
