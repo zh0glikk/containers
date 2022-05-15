@@ -203,4 +203,4 @@ jobs:
           context: osmosis
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: ghcr.io/faddat/osmosis:latest
+          tags: ghcr.io/faddat/images/osmosis:latest
