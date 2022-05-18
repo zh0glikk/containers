@@ -6,7 +6,7 @@ FROM ghcr.io/faddat/archlinux
 ENV GOPATH=/go
 
 # everything needed for cosmos development
-RUN pacman -Syyu --noconfirm go base-devel git leveldb rocksdb make python snappy lz4 git-lfs jq wget curl protobuf yarn rustup
+RUN pacman -Syyu --noconfirm go base-devel git leveldb rocksdb make python snappy lz4 git-lfs jq wget curl protobuf yarn rustup nvm
 
 # Useful tools
 RUN go install mvdan.cc/gofumpt@latest && \
