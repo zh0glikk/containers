@@ -13,5 +13,7 @@ RUN go install mvdan.cc/gofumpt@latest && \
       go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest && \
       cp /go/bin/gofumpt /usr/bin && \
       cp /go/bin/golangci-lint /usr/bin && \
-      rm -rf /go
+      rm -rf /go && \
+      mkdir /go && \
+      chmod -R 777 /go
 
