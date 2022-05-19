@@ -11,8 +11,8 @@ RUN pacman -Syyu --noconfirm go base-devel git leveldb rocksdb make python snapp
 # Useful tools
 RUN go install mvdan.cc/gofumpt@latest && \
       go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest && \
-      cp /go/bin/gofumpt /usr/bin && \
-      cp /go/bin/golangci-lint /usr/bin && \
+      go install github.com/bufbuild/buf/cmd/buf@latest &&\
+      cp /go/bin/* /usr/bin && \
       rm -rf /go && \
       mkdir /go && \
       chmod -R 777 /go
