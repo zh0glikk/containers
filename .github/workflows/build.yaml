@@ -104,7 +104,7 @@ jobs:
           context: cosmos
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: ghcr.io/faddat/cosmos:latest
+          tags: ghcr.io/notional-labs/cosmos:latest
           
           
   evmos:
@@ -137,7 +137,7 @@ jobs:
           context: evmos
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: ghcr.io/faddat/evmos:latest
+          tags: ghcr.io/notional-labs/evmos:latest
 
 
   gaia:
@@ -170,7 +170,7 @@ jobs:
           context: gaia
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: ghcr.io/faddat/gaia:latest
+          tags: ghcr.io/notional-labs/gaia:latest
 
 
   osmosis:
@@ -203,4 +203,4 @@ jobs:
           context: osmosis
           platforms: linux/amd64,linux/arm64
           push: true
-          tags: ghcr.io/faddat/images/osmosis:latest
+          tags: ghcr.io/notional-labs/images/osmosis:latest

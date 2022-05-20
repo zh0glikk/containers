@@ -1,7 +1,7 @@
 # This dockerfile will be used to bootstrap the docker changes for the cosmos SDK, and will be built hourly.
 # We'll also move faddat/archlinux to an hourly schedule, ensuring that when the images are put to use, they dont' need to update as many packages.
 
-FROM ghcr.io/faddat/archlinux
+FROM ghcr.io/notional-labs/archlinux
 
 ENV GOPATH=/go
 
@@ -12,6 +12,15 @@ RUN pacman -Syyu --noconfirm go base-devel git leveldb rocksdb make python snapp
 RUN go install mvdan.cc/gofumpt@latest && \
       go install github.com/golangci/golangci-lint/cmd/golangci-lint@latest && \
       go install github.com/bufbuild/buf/cmd/buf@latest &&\
+      go install google.golang.org/protobuf/cmd/protoc-gen-go@latest && \
+      go install google.golang.org/grpc/cmd/protoc-gen-go-grpc@latest && \
+      go install github.com/grpc-ecosystem/grpc-gateway/protoc-gen-grpc-gateway@v1.16.0 && \
+      go install github.com/cosmos/cosmos-proto/cmd/protoc-gen-go-pulsar@latest && \
+      go get github.com/regen-network/cosmos-proto@latest && \
+      git clone github.com/regen-network/cosmos-proto && \
+      cd cosmos-proto && \
+      go install ./... && \ 
+      go get github.com/regen-network/cosmos-proto/protoc-gen-gocosmos@v0.3.1 && \
       cp /go/bin/* /usr/bin && \
       rm -rf /go && \
       mkdir /go && \

@@ -1,7 +1,7 @@
 version: "3.9"
 services:
   evmos:
-    image: ghcr.io/faddat/evmos
+    image: ghcr.io/notional-labs/evmos
     deploy:
       replicas: 5
     ports:

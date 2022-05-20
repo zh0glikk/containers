@@ -1,5 +1,5 @@
 ARG ARCH=amd64
-FROM ghcr.io/faddat/archlinux-$ARCH
+FROM ghcr.io/notional-labs/archlinux-$ARCH
 
 ARG ARCHDIR="rootfs/amd64"
 

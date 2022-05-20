@@ -1,4 +1,4 @@
-FROM ghcr.io/faddat/cosmos
+FROM ghcr.io/notional-labs/cosmos
 
 COPY . .
 

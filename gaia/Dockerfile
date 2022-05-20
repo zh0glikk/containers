@@ -1,4 +1,4 @@
-FROM ghcr.io/faddat/cosmos
+FROM ghcr.io/notional-labs/cosmos
 
 RUN wget -q https://github.com/cosmos/mainnet/raw/master/genesis.cosmoshub-4.json.gz && \
     gzip -d genesis.cosmoshub-4.json.gz && \
