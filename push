@@ -5,6 +5,5 @@ DOCKER_ORG=ghcr.io/notional-labs
 DOCKER_IMAGE=archlinux-${DOCKER_ARCH}
 
 docker push $DOCKER_ORG/$DOCKER_IMAGE
-docker push $DOCKER_ORG/$DOCKER_IMAGE:devel
 
 
