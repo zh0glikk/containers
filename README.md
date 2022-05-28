@@ -1,4 +1,7 @@
-# Basic Arch Linux Docker images ![build](https://github.com/faddat/archlinux-docker/workflows/build/badge.svg)
+# Cosmos Docker Convienence Images
+
+
+![build](https://github.com/faddat/archlinux-docker/workflows/build/badge.svg)
 
 Standardized Cosmos ecosystem Docker images supporting the omnibus branch of tm-db
 
