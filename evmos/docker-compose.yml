@@ -1,9 +1,9 @@
 version: "3.9"
 services:
   evmos:
-    image: ghcr.io/notional-labs/evmos
-    deploy:
-      replicas: 5
+    image: evmos-node:latest
+#    deploy:
+#      replicas: 5
     ports:
       - "26656:26656"
       - "1317:1317"

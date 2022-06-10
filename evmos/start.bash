@@ -14,12 +14,13 @@ export GOPATH=~/go
 export PATH=$PATH:~/go/bin
 
 # Use if building on a mac
-# export CGO_CFLAGS="-I/opt/homebrew/Cellar/rocksdb/6.27.3/include"
-# export CGO_LDFLAGS="-L/opt/homebrew/Cellar/rocksdb/6.27.3/lib -lrocksdb -lstdc++ -lm -lz -lbz2 -lsnappy -llz4 -lzstd -L/opt/homebrew/Cellar/snappy/1.1.9/lib -L/opt/homebrew/Cellar/lz4/1.9.3/lib/ -L /opt/homebrew/Cellar/zstd/1.5.1/lib/"
+ export CGO_CFLAGS="-I/opt/homebrew/Cellar/rocksdb/6.27.3/include"
+ export CGO_LDFLAGS="-L/opt/homebrew/Cellar/rocksdb/6.27.3/lib -lrocksdb -lstdc++ -lm -lz -lbz2 -lsnappy -llz4 -lzstd -L/opt/homebrew/Cellar/snappy/1.1.9/lib -L/opt/homebrew/Cellar/lz4/1.9.3/lib/ -L /opt/homebrew/Cellar/zstd/1.5.1/lib/"
 go install -ldflags '-w -s -X github.com/cosmos/cosmos-sdk/types.DBBackend=rocksdb' -tags rocksdb ./...
 
 # MAKE HOME FOLDER AND GET GENESIS
-evmosd init evmos-rocks --chain-id evmos_9001-2
+evmosd init zh-chain --chain-id evmos_9001-2
+#cat genesis.json
 cp genesis.json ~/.evmosd/config
 
 INTERVAL=1500
@@ -51,4 +52,4 @@ export EVMOSD_STATESYNC_TRUST_HASH=$TRUST_HASH
 
 
 # THIS WILL FAIL BECAUSE THE APP VERSION IS CORRECTLY SET IN OSMOSIS
-evmosd start --json-rpc.enable=true --json-rpc.api="eth,web3,net" --x-crisis-skip-assert-invariants --db_backend rocksdb
+evmosd start --json-rpc.enable=true --json-rpc.api="eth,web3,net,txpool" --x-crisis-skip-assert-invariants --db_backend rocksdb
